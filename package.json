@@ -2,10 +2,23 @@
   "name": "retail-api-server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel -d build/ src/",
+    "prebuild": "rimraf build/",
+    "start": "node build/server.js",
+    "prestart": "npm run build",
+    "dev": "nodemon --watch src/server.js --exec babel-node src/server.js"
   },
   "author": "Nasir Abbas",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.14",
+    "nodemon": "^1.18.10",
+    "rimraf": "^2.6.3"
+  }
 }
