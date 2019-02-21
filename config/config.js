@@ -1,0 +1,1 @@
+export const dbURL = 'mongodb://localhost/retail';
