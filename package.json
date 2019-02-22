@@ -9,7 +9,8 @@
     "start": "node build/server.js",
     "prestart": "npm run build",
     "dev": "nodemon --watch src/server.js --exec babel-node src/server.js",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "jest"
   },
   "author": "Nasir Abbas",
   "license": "ISC",
@@ -22,8 +23,12 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^24.1.0",
     "babel-preset-env": "^1.7.0",
     "eslint": "^5.14.1",
-    "nodemon": "^1.18.10"
+    "jest": "^24.1.0",
+    "nodemon": "^1.18.10",
+    "supertest": "^3.4.2"
   }
 }
