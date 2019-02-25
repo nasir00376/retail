@@ -2,15 +2,16 @@
   "name": "retail-api-server",
   "version": "1.0.0",
   "description": "",
-  "main": "src/server.js",
+  "main": "src/server.ts",
   "scripts": {
-    "build": "babel -d build/ src/",
-    "prebuild": "rimraf build/",
-    "start": "node build/server.js",
+    "analyse": "npm run lint",
+    "clean": "rimraf .build",
+    "prebuild": "npm run clean && npm run analyse",
+    "build": "tsc",
+    "start": "node build/src/server.js",
     "prestart": "npm run build",
-    "dev": "nodemon --watch src/server.js --exec babel-node src/server.js",
-    "lint": "eslint .",
-    "test": "jest"
+    "dev": "nodemon",
+    "lint": "tslint --project . --format verbose"
   },
   "author": "Nasir Abbas",
   "license": "ISC",
@@ -22,6 +23,14 @@
     "rimraf": "^2.6.3"
   },
   "devDependencies": {
-    "nodemon": "^1.18.10"
+    "@types/debug": "^4.1.2",
+    "@types/express": "^4.16.1",
+    "@types/mongodb": "^3.1.19",
+    "@types/mongoose": "^5.3.19",
+    "@types/node": "^11.9.5",
+    "nodemon": "^1.18.10",
+    "ts-node": "^8.0.2",
+    "tslint": "^5.13.0",
+    "typescript": "^3.3.3333"
   }
 }
