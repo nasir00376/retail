@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "outDir": "build",
+        "module": "commonjs",
+        "experimentalDecorators": true,
+        "lib": [
+            "dom",
+            "esnext"
+        ],
+        "sourceMap": true,
+        "declaration": true,
+        "declarationDir": "typings",
+        "strict": true
+    },
+    "include": [
+        "src/**/*.ts",
+        "packages/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
