@@ -1,6 +1,8 @@
 import * as Debug from 'debug';
 
 import { ApiHandler, Request, Response } from '../../shared/common.interface';
+import { BadRequestResult, InternalServerErrorResult } from '../../shared/errors';
+import { ResponseBuilder } from '../../shared/response-builder';
 
 import { Category } from './categories.interface';
 import { CategoriesService } from './categories.service';
@@ -13,8 +15,22 @@ export class CategoriesController {
     }
 
     public get: ApiHandler = async (req: Request, res: Response): Promise<void> => {
-        const categories: Category[] = await this._service.getCategories();
-        debug('Categories fetcehd.');
-        res.send(categories);
+        try {
+            const categories: Category[] = await this._service.getCategories();
+            debug('Categories fetcehd.');
+
+            ResponseBuilder.ok<Category[]>(categories, res);
+
+        } catch (error) {
+            if (error instanceof BadRequestResult) {
+                return ResponseBuilder.badRequest(error.code, error.description, res);
+            }
+
+            if (error instanceof InternalServerErrorResult) {
+                return ResponseBuilder.internalServerError(error.code, error.description, res);
+            }
+
+            return ResponseBuilder.generalError(error, res);
+        }
     }
 }
