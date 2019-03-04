@@ -16,3 +16,7 @@ export function fx(): any {
         USD: 1,
     };
 }
+
+export function shallowCopy<T>(data: T): T {
+    return JSON.parse(JSON.stringify(data));
+}

@@ -1,9 +1,10 @@
+import * as bodyParser from 'body-parser';
 import * as Debug from 'debug';
 import * as express from 'express';
 
 import { connectDB, PORT } from '../config';
 
-import { categoriesRoutes } from './categories/categories.routes';
+import { routes } from './routes';
 
 const debug: Debug.IDebugger = Debug('retail:app');
 
@@ -12,8 +13,10 @@ const app: express.Application = express();
 connectDB()
     .catch((error: Error) => debug('Error while db connection', error.message));
 
+// Middlewares
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 // Use routes as middlewares
-// Routes(app);
+routes(app);
 
-app.use('/api/categories', categoriesRoutes);
 app.listen(PORT, () => debug(`Server is listening on ${PORT}`));

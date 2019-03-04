@@ -10,7 +10,7 @@ const productSchema: Schema = new Schema({
     category: categorySchema,
     name: { type: String, required: true },
     // Pictures must start with 'http://
-    pictures: [{ type: String, match: /^http:\/\//i }],
+    pictures: [{ type: String, match: /^http?s:\/\//i }],
     price: {
         amount: {
             required: true,
@@ -44,7 +44,7 @@ const productSchema: Schema = new Schema({
  */
 
 // tslint:disable-next-line:space-before-function-paren
-productSchema.methods.displayPrice = function (): string {
+productSchema.methods.showPrice = function (): string {
     return `${currencySymbols[this.price.currency]}${this.price.amount as number}`;
 };
 

@@ -1,9 +1,11 @@
 import { Router } from 'express';
 
-import { get } from './categories';
+import { create, list, listByParent } from './categories';
 
 const router: Router = Router();
 
-router.get('/', get);
+router.get('/', list);
+router.get('/parent/:parent', listByParent);
+router.post('/', create);
 
 export const categoriesRoutes: Router = router;
