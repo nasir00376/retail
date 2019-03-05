@@ -6,7 +6,7 @@
   "scripts": {
     "analyse": "npm run lint",
     "clean": "rimraf .build",
-    "prebuild": "npm run clean && npm run analyse",
+    "prebuild": "npm run clean",
     "build": "tsc",
     "start": "node .build/src/server.js",
     "prestart": "npm run build",
