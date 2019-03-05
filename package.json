@@ -24,6 +24,8 @@
     "express": "^4.16.4",
     "lodash": "^4.17.11",
     "mongoose": "^5.4.14",
+    "ts-node": "^8.0.2",
+    "typescript": "^3.3.3333",
     "rimraf": "^2.6.3"
   },
   "devDependencies": {
@@ -34,8 +36,6 @@
     "@types/mongoose": "^5.3.19",
     "@types/node": "^11.9.5",
     "nodemon": "^1.18.10",
-    "ts-node": "^8.0.2",
-    "tslint": "^5.13.0",
-    "typescript": "^3.3.3333"
+    "tslint": "^5.13.0"
   }
 }
