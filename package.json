@@ -4,7 +4,7 @@
   "engines": {
     "node": "10.x"
   },
-  "description": "",
+  "description": "retail api server",
   "main": "src/server.ts",
   "scripts": {
     "analyse": "npm run lint",
