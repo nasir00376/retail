@@ -1,6 +1,9 @@
 {
   "name": "retail-api-server",
   "version": "1.0.0",
+  "engines": {
+    "node": "10.x"
+  },
   "description": "",
   "main": "src/server.ts",
   "scripts": {
