@@ -2,17 +2,17 @@
   "name": "retail-api-server",
   "version": "1.0.0",
   "engines": {
-    "node": "10.x"
+    "node": "11.x"
   },
   "description": "retail api server",
-  "main": "src/server.ts",
+  "main": ".build/src/server.js",
   "scripts": {
     "analyse": "npm run lint",
     "clean": "rimraf .build",
     "prebuild": "npm run clean",
     "build": "tsc",
     "start": "node .build/src/server.js",
-    "prestart": "npm run build",
+    "postinstall": "npm run build",
     "dev": "nodemon",
     "lint": "tslint --project . --format verbose"
   },
