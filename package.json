@@ -26,15 +26,15 @@
     "mongoose": "^5.4.14",
     "ts-node": "^8.0.2",
     "typescript": "^3.3.3333",
-    "rimraf": "^2.6.3"
-  },
-  "devDependencies": {
+    "rimraf": "^2.6.3",
     "@types/debug": "^4.1.2",
     "@types/express": "^4.16.1",
     "@types/lodash": "^4.14.121",
     "@types/mongodb": "^3.1.19",
     "@types/mongoose": "^5.3.19",
-    "@types/node": "^11.9.5",
+    "@types/node": "^11.9.5"
+  },
+  "devDependencies": {
     "nodemon": "^1.18.10",
     "tslint": "^5.13.0"
   }
