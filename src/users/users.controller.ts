@@ -1,15 +1,17 @@
 import * as Debug from 'debug';
-import { ApiHandler, Request, Response } from "../../shared/common.interface";
-import { ResponseBuilder } from "../../build/shared/response-builder";
-import { BadRequestResult, InternalServerErrorResult } from "../../build/shared/errors";
-import { ErrorCode } from "../../build/shared/error-codes";
-import { UsersService } from "./users.service";
-import { User, UserModel } from './user.interface';
+
+import { ErrorCode } from '../../build/shared/error-codes';
+import { BadRequestResult, InternalServerErrorResult } from '../../build/shared/errors';
+import { ResponseBuilder } from '../../build/shared/response-builder';
+import { ApiHandler, Request, Response } from '../../shared/common.interface';
+
+import { UserModel } from './user.interface';
+import { UsersService } from './users.service';
 
 const debug: Debug.IDebugger = Debug('retail:controller:users');
 
 export class UsersController {
-    public constructor(private _service: UsersService) { }
+    public constructor(private readonly _service: UsersService) { }
     // Users cart
     public cart: ApiHandler = async (req: Request, res: Response): Promise<void> => {
         try {
