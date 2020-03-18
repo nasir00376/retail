@@ -52,7 +52,10 @@ export class ProductsController {
                 return ResponseBuilder.ok<Product>(product, res);
             }
 
-            const filter: Filter = { where: { 'category.ancestors': category } };
+            let filter: Filter = {};
+            if (category) {
+                filter = { where: { 'category.ancestors': category } };
+            }
 
             const products: Product[] = await this._service.get(filter);
             ResponseBuilder.ok<Product[]>(products, res);

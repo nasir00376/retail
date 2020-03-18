@@ -33,6 +33,7 @@ export type App = express.Application;
 export type Request = express.Request;
 export type Response = express.Response;
 export type ApiHandler = (req: Request, res: Response) => Promise<void>;
+
 export type ID = string;
 
 export interface Where {

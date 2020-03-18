@@ -2,7 +2,7 @@ import * as Debug from 'debug';
 import { omit } from 'lodash';
 
 import { shallowCopy } from '../../shared';
-import { Filter, ID, Where } from '../../shared/common.interface';
+import { Filter, ID, Where, } from '../../shared/common.interface';
 import { ErrorCode } from '../../shared/error-codes';
 import { InternalServerErrorResult, NotFoundResult } from '../../shared/errors';
 import { Category } from '../categories/categories.interface';
@@ -26,12 +26,14 @@ export class ProductsService {
     // List categories by filter
     public readonly get = async (filter?: Filter): Promise<Product[]> => {
         try {
-            const where: Where | undefined = filter && filter.where;
+            const where: Where = filter && filter.where || {};
+            debug('filter', where);
             const products: ProductModel[] = await productModel.find(where).sort({ _id: 1 });
 
-            return this.fromatResponse(shallowCopy(products));
+
+            return this.fromatResponse((products));
         } catch (error) {
-            throw new InternalServerErrorResult(ErrorCode.InternalServerError, 'Something went wrong');
+            throw new InternalServerErrorResult(ErrorCode.InternalServerError, error.message || 'Something went wrong');
         }
     }
 
